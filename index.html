@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arizona Valley Pressure Washing | Phoenix's 5-Star Team</title>
+<style>
+  :root { --primary: #1a5276; --secondary: #e67e22; --accent: #f0f8ff; --dark: #1a252f; --text: #2c3e50; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--text); }
+  nav { background: var(--primary); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+  .nav-logo { color: white; font-size: 1.2rem; font-weight: 700; }
+  .nav-logo span { color: var(--secondary); }
+  .nav-phone a { color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+  .hero { background: linear-gradient(135deg, var(--primary) 0%, #0d3349 60%, #1a5276 100%); color: white; padding: 5rem 2rem 4rem; text-align: center; }
+  .hero-badge { display: inline-block; background: var(--secondary); color: white; padding: 0.4rem 1.2rem; border-radius: 20px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1.5rem; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 1.2rem; }
+  .hero h1 span { color: var(--secondary); }
+  .hero-sub { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.92; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .hero-differentiators { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+  .diff-pill { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 0.5rem 1.1rem; border-radius: 25px; font-size: 0.9rem; font-weight: 600; }
+  .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--secondary); color: white; padding: 1rem 2.2rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; box-shadow: 0 4px 15px rgba(230,126,34,0.4); }
+  .btn-primary:hover { transform: translateY(-2px); background: #cf6d17; }
+  .btn-secondary { background: transparent; color: white; padding: 1rem 2.2rem; border: 2px solid rgba(255,255,255,0.6); border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
+  .rating-banner { background: var(--secondary); color: white; text-align: center; padding: 1.2rem 2rem; font-size: 1.1rem; font-weight: 700; }
+  .stars { color: #FFD700; font-size: 1.3rem; margin: 0 0.3rem; }
+  .services { padding: 5rem 2rem; background: white; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-header h2 { font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; }
+  .section-header p { color: #666; font-size: 1.1rem; max-width: 550px; margin: 0 auto; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .service-card { background: var(--accent); border-radius: 12px; padding: 2rem; text-align: center; border: 1px solid #d6eaf8; transition: all 0.2s; }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(26,82,118,0.12); }
+  .service-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .service-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--primary); margin-bottom: 0.6rem; }
+  .service-card p { color: #555; font-size: 0.95rem; line-height: 1.6; }
+  .why-us { background: var(--accent); padding: 5rem 2rem; }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+  .why-card { background: white; border-radius: 12px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 2px 15px rgba(0,0,0,0.06); }
+  .why-icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
+  .why-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+  .why-card p { color: #666; font-size: 0.9rem; line-height: 1.5; }
+  .about { padding: 5rem 2rem; background: white; }
+  .about-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .about-text h2 { font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 1.2rem; }
+  .about-text p { color: #555; font-size: 1rem; line-height: 1.8; margin-bottom: 1rem; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .stat-box { background: var(--primary); color: white; border-radius: 12px; padding: 1.5rem; text-align: center; }
+  .stat-num { font-size: 2.2rem; font-weight: 800; display: block; }
+  .stat-num.gold { color: #FFD700; }
+  .stat-label { font-size: 0.85rem; opacity: 0.85; margin-top: 0.3rem; }
+  .reviews { background: var(--dark); color: white; padding: 5rem 2rem; text-align: center; }
+  .reviews h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .reviews .subtitle { color: #aaa; margin-bottom: 3rem; font-size: 1rem; }
+  .review-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto 2.5rem; }
+  .review-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 1.8rem; text-align: left; }
+  .review-stars { color: #FFD700; font-size: 1.1rem; margin-bottom: 0.8rem; }
+  .review-text { font-size: 0.95rem; line-height: 1.7; opacity: 0.9; margin-bottom: 1rem; }
+  .review-author { font-weight: 700; color: var(--secondary); font-size: 0.9rem; }
+  .overall-rating { display: inline-flex; align-items: center; gap: 0.8rem; background: rgba(255,255,255,0.08); border-radius: 50px; padding: 0.8rem 2rem; margin-top: 1rem; }
+  .big-score { font-size: 2.5rem; font-weight: 800; color: #FFD700; }
+  .score-detail { text-align: left; }
+  .score-detail .score-stars { color: #FFD700; font-size: 1.3rem; }
+  .score-detail small { display: block; opacity: 0.6; font-size: 0.8rem; }
+  .cta-section { background: linear-gradient(135deg, var(--secondary), #d35400); color: white; padding: 5rem 2rem; text-align: center; }
+  .cta-section h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 1rem; }
+  .cta-section p { font-size: 1.1rem; opacity: 0.92; margin-bottom: 2rem; max-width: 550px; margin-left: auto; margin-right: auto; }
+  .btn-white { background: white; color: var(--secondary); padding: 1.1rem 2.5rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+  .btn-white:hover { transform: translateY(-2px); }
+  footer { background: var(--dark); color: #aaa; text-align: center; padding: 2rem; font-size: 0.9rem; }
+  footer a { color: var(--secondary); text-decoration: none; }
+  @media (max-width: 700px) { .about-inner { grid-template-columns: 1fr; gap: 2.5rem; } .hero h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Arizona Valley <span>Pressure Washing</span></div>
+  <div class="nav-phone"><a href="tel:4804338306">&#128222; (480) 433-8306</a></div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">&#11088; Phoenix's #1 Rated Pressure Washing Team</div>
+  <h1>Arizona Valley: <span>Phoenix's 5-Star</span><br>Pressure Washing Team</h1>
+  <p class="hero-sub">We restore driveways, roofs, and commercial properties to like-new condition. Trusted by Phoenix homeowners and businesses across the Valley.</p>
+  <div class="hero-differentiators">
+    <span class="diff-pill">&#127807; Eco-Friendly Products</span>
+    <span class="diff-pill">&#9989; Satisfaction Guarantee</span>
+    <span class="diff-pill">&#9889; Same-Day Response</span>
+    <span class="diff-pill">&#128205; Serving All of Phoenix &amp; AZ Valley</span>
+  </div>
+  <div class="hero-cta">
+    <a href="tel:4804338306" class="btn-primary">&#128222; Get a Free Quote</a>
+    <a href="#services" class="btn-secondary">See Our Services</a>
+  </div>
+</section>
+
+<div class="rating-banner">
+  <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Perfect 5.0 Google Rating &mdash; Phoenix's Most Trusted Pressure Washing Company
+</div>
+
+<section class="services" id="services">
+  <div class="section-header">
+    <h2>Professional Pressure Washing Services</h2>
+    <p>From driveways to rooftops, we handle every surface with expert care and eco-friendly solutions.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">&#127968;</div>
+      <h3>Residential Exterior</h3>
+      <p>Complete house washing that removes years of dirt, grime, algae, and oxidation. Safe for all siding types.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">&#128663;</div>
+      <h3>Driveway &amp; Concrete</h3>
+      <p>High-pressure concrete cleaning for driveways, walkways, and patios. We eliminate oil stains and stubborn buildup.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">&#127970;</div>
+      <h3>Commercial Properties</h3>
+      <p>Keep your business looking sharp. Parking lots, storefronts, and building facades professionally cleaned.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">&#127961;</div>
+      <h3>Roof Soft Wash</h3>
+      <p>Gentle low-pressure roof cleaning that eliminates algae and extends your roof's life without causing damage.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">&#127754;</div>
+      <h3>Pool Deck Cleaning</h3>
+      <p>Restore your pool deck's original look. We remove algae, calcium buildup, and slip hazards safely.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">&#127959;</div>
+      <h3>Post-Construction Cleanup</h3>
+      <p>New build or renovation? We remove construction residue, paint, and dust from all exterior surfaces.</p>
+    </div>
+  </div>
+</section>
+
+<section class="why-us">
+  <div class="section-header">
+    <h2>Why Phoenix Chooses Arizona Valley</h2>
+    <p>We built our reputation one clean surface at a time, and our results speak for themselves.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">&#127807;</div>
+      <h3>Eco-Friendly Products</h3>
+      <p>We use biodegradable, environmentally safe cleaning solutions that protect your landscaping and family.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">&#9989;</div>
+      <h3>100% Satisfaction Guarantee</h3>
+      <p>Not happy with the result? We come back and make it right. Your satisfaction is not negotiable.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">&#9889;</div>
+      <h3>Same-Day Response</h3>
+      <p>Call us today and we respond the same day. Most jobs can be scheduled within 24-48 hours.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">&#11088;</div>
+      <h3>Perfect 5.0 Rating</h3>
+      <p>Every single customer has rated us 5 stars. That's not luck; that's commitment to quality on every job.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <h2>Built for the Valley. Built to Last.</h2>
+      <p>Arizona Valley Pressure Washing was founded right here in Phoenix by a team that understands the unique challenges of the desert climate. Hard water stains, algae growth from monsoon season, and the relentless Arizona sun take a toll on every exterior surface.</p>
+      <p>We built this company with one simple mission: bring the highest quality pressure washing to Phoenix homeowners and businesses, using methods that are tough on grime and gentle on the environment. No shortcuts, no subcontractors. When you book with Arizona Valley, our own trained team shows up every time.</p>
+      <p>From Scottsdale to Tempe, Glendale to Mesa, we know the Valley and we're proud to serve it.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-box">
+        <span class="stat-num gold">5.0</span>
+        <div class="stat-label">&#11088; Perfect Google Rating</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">100%</span>
+        <div class="stat-label">Satisfaction Guarantee</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">Same</span>
+        <div class="stat-label">Day Response Guaranteed</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">&#127807;</span>
+        <div class="stat-label">Eco-Friendly Solutions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <h2>What Phoenix Is Saying</h2>
+  <p class="subtitle">Real reviews from real Valley customers</p>
+  <div class="review-cards">
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"My driveway looks brand new. I've had other companies out before but Arizona Valley was on a different level. Thorough, professional, and the price was fair. Will absolutely use them again."</p>
+      <div class="review-author">Jennifer M., Scottsdale AZ</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"Called them at 9am, they were at my house by 2pm. The crew was friendly and did an amazing job on my pool deck and back patio. I couldn't believe the difference. Highly recommend!"</p>
+      <div class="review-author">Marcus T., Phoenix AZ</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-text">"We use Arizona Valley for our commercial property in Mesa. Consistent quality, always on time, and they actually care about doing it right. The eco-friendly products were a big deal for us too."</p>
+      <div class="review-author">Sandra K., Mesa AZ</div>
+    </div>
+  </div>
+  <div class="overall-rating">
+    <div class="big-score">5.0</div>
+    <div class="score-detail">
+      <div class="score-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div>Perfect Google Rating</div>
+      <small>Arizona's Most Trusted Pressure Washing</small>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready for a Cleaner Property?</h2>
+  <p>Get your free, no-obligation quote today. Same-day response guaranteed. Serving all of Phoenix and the Arizona Valley.</p>
+  <a href="tel:4804338306" class="btn-white">&#128222; Call (480) 433-8306</a>
+</section>
+
+<footer>
+  <p><strong>Arizona Valley Pressure Washing LLC</strong> &mdash; Phoenix, AZ &mdash; <a href="tel:4804338306">(480) 433-8306</a></p>
+  <p style="margin-top:0.5rem; font-size:0.8rem;">Serving Phoenix, Scottsdale, Tempe, Mesa, Glendale, Chandler &amp; the entire Arizona Valley</p>
+  <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.5;">Demo website created by <a href="https://remarketize.com">Remarketize.com</a></p>
+</footer>
+
+</body>
+</html>
